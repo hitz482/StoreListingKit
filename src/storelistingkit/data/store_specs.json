@@ -1,0 +1,40 @@
+{
+  "_comment": "Single source of truth for store limits (ADR 0005). Values are the authors' best understanding and MUST be re-checked against the live publisher portals before each release; set verified=true and last_checked when done. Override with SLK_STORE_SPECS.",
+  "fab": {
+    "display_name": "Fab (Unreal Engine)",
+    "source": "Fab publisher listing guidelines (re-verify in the Fab publisher portal)",
+    "verified": false,
+    "last_checked": null,
+    "fields": {
+      "title": {"max_chars": 60, "min_chars": 3},
+      "short_description": {"max_chars": 200, "min_chars": 20},
+      "long_description": {"max_chars": 10000, "min_chars": 200},
+      "features": {"max_items": 12, "max_chars": 160},
+      "tags": {"max_items": 15, "max_chars": 30}
+    },
+    "images": {
+      "thumbnail": {"width": 1920, "height": 1080, "required": true, "max_count": 1, "caption": true},
+      "gallery": {"width": 1920, "height": 1080, "required": true, "max_count": 20, "min_count": 1, "caption": false}
+    }
+  },
+  "unity_asset_store": {
+    "display_name": "Unity Asset Store",
+    "source": "Unity Asset Store submission guidelines (re-verify in the Publisher Portal)",
+    "verified": false,
+    "last_checked": null,
+    "fields": {
+      "title": {"max_chars": 50, "min_chars": 3},
+      "short_description": {"max_chars": 200, "min_chars": 20},
+      "long_description": {"max_chars": 10000, "min_chars": 200},
+      "features": {"max_items": 12, "max_chars": 160},
+      "tags": {"max_items": 15, "max_chars": 30}
+    },
+    "images": {
+      "icon": {"width": 160, "height": 160, "required": false, "max_count": 1, "caption": false},
+      "card": {"width": 420, "height": 280, "required": true, "max_count": 1, "caption": true},
+      "cover": {"width": 1950, "height": 1300, "required": true, "max_count": 1, "caption": true},
+      "social": {"width": 1200, "height": 630, "required": true, "max_count": 1, "caption": true},
+      "screenshot": {"width": 2400, "height": 1600, "required": true, "max_count": 20, "min_count": 1, "caption": false}
+    }
+  }
+}
