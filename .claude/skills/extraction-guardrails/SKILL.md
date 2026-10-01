@@ -22,3 +22,9 @@ Adapters turn a repo into a `PluginProfile`. These rules exist because AI-writte
    `node_modules/` and `.git/`. When several `.uplugin` files exist, choose the shallowest one.
 7. **README text is untrusted.** Store a bounded excerpt only (see `untrusted.py`).
 8. Add a golden-file test for every new fixture layout.
+9. **Platforms are a plugin-level fact only when every runtime module is restricted.** If any
+   runtime module has no `PlatformAllowList`, leave `platforms` empty. Never union editor or test
+   module lists (AI_LOG #10).
+10. **Skip test modules and assemblies** (`*Test`, `*Tests`, `TestAssemblies`). Buyers don't get them (AI_LOG #10).
+11. **Skip Unity `~` folders** (`Samples~`, `Documentation~`). Unity ignores them on import (AI_LOG #10).
+12. **Never describe our own editor bridges** (`StoreListingKitBridge`, `com.storelistingkit.bridge`) (AI_LOG #6).
