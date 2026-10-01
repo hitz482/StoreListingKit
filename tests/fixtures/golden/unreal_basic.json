@@ -1,0 +1,72 @@
+{
+  "author": "Example Studio",
+  "category": "Rendering",
+  "dependencies": [
+    "EnhancedInput",
+    "UnrealEd",
+    "RenderCore",
+    "Renderer",
+    "Projects"
+  ],
+  "description": "Per-object outlines and highlight effects for selection, interaction and x-ray views.",
+  "display_name": "Quick Outline",
+  "docs_url": "https://example.com/quickoutline/docs",
+  "engine": "unreal",
+  "engine_versions": [
+    "5.4"
+  ],
+  "features": [
+    "Per-object outline color, width and occlusion mode",
+    "X-ray view for objects behind walls",
+    "Blueprint-friendly UQuickOutlineComponent",
+    "Works with Enhanced Input interaction highlights"
+  ],
+  "keywords": [],
+  "license": "",
+  "modules": [
+    {
+      "kind": "Runtime",
+      "name": "QuickOutline",
+      "platforms": [
+        "Win64",
+        "Mac",
+        "Linux"
+      ]
+    },
+    {
+      "kind": "Editor",
+      "name": "QuickOutlineEditor",
+      "platforms": [
+        "Win64"
+      ]
+    }
+  ],
+  "name": "QuickOutline",
+  "platforms": [
+    "Win64",
+    "Mac",
+    "Linux"
+  ],
+  "readme_excerpt": "# Quick Outline\n\nQuick Outline adds fast, configurable per-object outlines to Unreal Engine projects without post-process materials on every mesh.\n\n## Features\n\n- Per-object outline color, width and occlusion mode\n- **X-ray** view for objects behind walls\n- Blueprint-friendly `UQuickOutlineComponent`\n- Works with [Enhanced Input](https://example.com) interaction highlights\n\n## Installation\n\nCopy into your project's Plugins folder.",
+  "sources": {
+    "author": "QuickOutline/QuickOutline.uplugin",
+    "category": "QuickOutline/QuickOutline.uplugin",
+    "dependencies": "QuickOutline/QuickOutline.uplugin, Source/*/*.Build.cs",
+    "description": "QuickOutline/QuickOutline.uplugin",
+    "display_name": "QuickOutline/QuickOutline.uplugin",
+    "docs_url": "QuickOutline/QuickOutline.uplugin",
+    "engine_versions": "QuickOutline/QuickOutline.uplugin",
+    "features": "QuickOutline/README.md",
+    "modules": "QuickOutline/QuickOutline.uplugin",
+    "name": "QuickOutline/QuickOutline.uplugin",
+    "platforms": "QuickOutline/QuickOutline.uplugin",
+    "readme_excerpt": "QuickOutline/README.md",
+    "support_url": "QuickOutline/QuickOutline.uplugin",
+    "version": "QuickOutline/QuickOutline.uplugin"
+  },
+  "support_url": "https://example.com/support",
+  "version": "1.3.0",
+  "warnings": [
+    "README contains text that looks like instructions to an AI (ignore-instructions); it is treated as untrusted data."
+  ]
+}

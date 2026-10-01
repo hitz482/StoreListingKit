@@ -1,0 +1,31 @@
+{
+	// Real-world .uplugin files often carry comments and trailing commas.
+	"FileVersion": 3,
+	"Version": 4,
+	"VersionName": "1.3.0",
+	"FriendlyName": "Quick Outline",
+	"Description": "Per-object outlines and highlight effects for selection, interaction and x-ray views.",
+	"Category": "Rendering",
+	"CreatedBy": "Example Studio",
+	"DocsURL": "https://example.com/quickoutline/docs",
+	"SupportURL": "https://example.com/support",
+	"EngineVersion": "5.4.0",
+	"CanContainContent": true,
+	"Modules": [
+		{
+			"Name": "QuickOutline",
+			"Type": "Runtime",
+			"LoadingPhase": "Default",
+			"PlatformAllowList": [ "Win64", "Mac", "Linux" ]
+		},
+		{
+			"Name": "QuickOutlineEditor",
+			"Type": "Editor",
+			"LoadingPhase": "Default",
+			"PlatformAllowList": [ "Win64" ],
+		}
+	],
+	"Plugins": [
+		{ "Name": "EnhancedInput", "Enabled": true }
+	]
+}

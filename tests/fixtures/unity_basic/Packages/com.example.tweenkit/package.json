@@ -1,0 +1,13 @@
+{
+  "name": "com.example.tweenkit",
+  "displayName": "TweenKit",
+  "version": "2.1.0",
+  "unity": "2022.3",
+  "unityRelease": "0f1",
+  "description": "Allocation-free tweening for UI and gameplay with a fluent API and timeline preview.",
+  "keywords": ["tween", "animation", "ui"],
+  "author": { "name": "Example Studio", "url": "https://example.com" },
+  "license": "MIT",
+  "documentationUrl": "https://example.com/tweenkit",
+  "dependencies": { "com.unity.ugui": "1.0.0", "com.unity.mathematics": "1.2.6" }
+}

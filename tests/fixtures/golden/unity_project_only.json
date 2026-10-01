@@ -1,0 +1,42 @@
+{
+  "author": "",
+  "category": "",
+  "dependencies": [],
+  "description": "",
+  "display_name": "",
+  "docs_url": "",
+  "engine": "unity",
+  "engine_versions": [
+    "6000.0"
+  ],
+  "features": [],
+  "keywords": [],
+  "license": "",
+  "modules": [
+    {
+      "kind": "runtime",
+      "name": "MyTool.Runtime",
+      "platforms": [
+        "Android",
+        "iOS"
+      ]
+    }
+  ],
+  "name": "",
+  "platforms": [
+    "Android",
+    "iOS"
+  ],
+  "readme_excerpt": "A tiny tool.",
+  "sources": {
+    "engine_versions": "ProjectSettings/ProjectVersion.txt",
+    "modules": "*.asmdef",
+    "platforms": "*.asmdef",
+    "readme_excerpt": "Assets/MyTool/readme.txt"
+  },
+  "support_url": "",
+  "version": "",
+  "warnings": [
+    "No UPM package.json found; name and version need manual entry."
+  ]
+}

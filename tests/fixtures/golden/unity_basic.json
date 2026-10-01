@@ -1,0 +1,59 @@
+{
+  "author": "Example Studio",
+  "category": "",
+  "dependencies": [
+    "com.unity.mathematics",
+    "com.unity.ugui"
+  ],
+  "description": "Allocation-free tweening for UI and gameplay with a fluent API and timeline preview.",
+  "display_name": "TweenKit",
+  "docs_url": "https://example.com/tweenkit",
+  "engine": "unity",
+  "engine_versions": [
+    "2022.3"
+  ],
+  "features": [
+    "Zero GC allocations after warm-up",
+    "Sequence and parallel groups",
+    "Editor timeline preview"
+  ],
+  "keywords": [
+    "tween",
+    "animation",
+    "ui"
+  ],
+  "license": "MIT",
+  "modules": [
+    {
+      "kind": "runtime",
+      "name": "Example.TweenKit",
+      "platforms": []
+    },
+    {
+      "kind": "editor",
+      "name": "Example.TweenKit.Editor",
+      "platforms": []
+    }
+  ],
+  "name": "com.example.tweenkit",
+  "platforms": [],
+  "readme_excerpt": "# TweenKit\n\nTweenKit is an allocation-free tweening library for Unity with a fluent API.\n\n## Key Features\n* Zero GC allocations after warm-up\n* Sequence and parallel groups\n* Editor timeline preview",
+  "sources": {
+    "author": "Packages/com.example.tweenkit/package.json",
+    "dependencies": "Packages/com.example.tweenkit/package.json",
+    "description": "Packages/com.example.tweenkit/package.json",
+    "display_name": "Packages/com.example.tweenkit/package.json",
+    "docs_url": "Packages/com.example.tweenkit/package.json",
+    "engine_versions": "Packages/com.example.tweenkit/package.json",
+    "features": "Packages/com.example.tweenkit/README.md",
+    "keywords": "Packages/com.example.tweenkit/package.json",
+    "license": "Packages/com.example.tweenkit/package.json",
+    "modules": "*.asmdef",
+    "name": "Packages/com.example.tweenkit/package.json",
+    "readme_excerpt": "Packages/com.example.tweenkit/README.md",
+    "version": "Packages/com.example.tweenkit/package.json"
+  },
+  "support_url": "",
+  "version": "2.1.0",
+  "warnings": []
+}

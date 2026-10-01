@@ -1,0 +1,25 @@
+{
+  "author": "",
+  "category": "",
+  "dependencies": [],
+  "description": "",
+  "display_name": "",
+  "docs_url": "",
+  "engine": "unreal",
+  "engine_versions": [],
+  "features": [],
+  "keywords": [],
+  "license": "",
+  "modules": [],
+  "name": "Broken",
+  "platforms": [],
+  "readme_excerpt": "",
+  "sources": {
+    "name": "Broken/Broken.uplugin"
+  },
+  "support_url": "",
+  "version": "",
+  "warnings": [
+    "Broken/Broken.uplugin: could not parse (JSONDecodeError)"
+  ]
+}

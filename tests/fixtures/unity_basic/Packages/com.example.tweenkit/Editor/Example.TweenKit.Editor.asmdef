@@ -1,0 +1,1 @@
+{ "name": "Example.TweenKit.Editor", "references": ["Example.TweenKit"], "includePlatforms": ["Editor"] }
