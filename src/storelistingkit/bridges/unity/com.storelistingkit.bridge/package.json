@@ -1,0 +1,9 @@
+{
+  "name": "com.storelistingkit.bridge",
+  "displayName": "Store Listing Kit Bridge",
+  "version": "0.1.0",
+  "unity": "2021.3",
+  "description": "Editor-only bridge: open Store Listing Kit for a package in this project and capture listing screenshots.",
+  "keywords": ["store", "listing", "asset store"],
+  "author": { "name": "Store Listing Kit" }
+}

@@ -1,0 +1,129 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Store Listing Kit</title>
+  <link rel="icon" href="/static/icon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="/static/style.css">
+  <script src="/static/app.js" defer></script>
+</head>
+<body>
+<header class="topbar">
+  <div class="brand"><span class="logo">SLK</span> Store Listing Kit</div>
+  <div class="top-actions">
+    <button id="btn-engines" class="ghost" type="button">Connect engines</button>
+    <button id="btn-key" class="ghost" type="button"><span id="key-dot" class="dot"></span><span id="key-label">API key</span></button>
+  </div>
+</header>
+
+<main>
+  <ol class="stepper" id="stepper">
+    <li data-step="1">Repo</li><li data-step="2">Profile</li><li data-step="3">Screenshots</li>
+    <li data-step="4">Generate</li><li data-step="5">Review</li><li data-step="6">Export</li>
+  </ol>
+
+  <div id="banner" class="banner hidden" role="alert"></div>
+
+  <!-- Step 1 -->
+  <section class="card" id="step-1">
+    <h2>1. Connect your plugin repo</h2>
+    <p class="muted">Unreal (<code>.uplugin</code>) or Unity (UPM <code>package.json</code> / <code>.asmdef</code>). Nothing in the repo is executed.</p>
+    <div class="tabs" role="tablist">
+      <button class="tab active" data-tab="zip" type="button">Upload .zip</button>
+      <button class="tab" data-tab="url" type="button">GitHub URL</button>
+      <button class="tab" data-tab="folder" type="button">Local folder</button>
+    </div>
+    <div class="tabpane" data-pane="zip">
+      <label class="drop" id="zip-drop">
+        <input type="file" id="zip-input" accept=".zip" hidden>
+        <strong>Drop a .zip here</strong> or click to choose
+      </label>
+    </div>
+    <div class="tabpane hidden" data-pane="url">
+      <div class="row"><input id="url-input" type="url" placeholder="https://github.com/owner/repo"><button id="url-go" type="button">Fetch</button></div>
+      <p class="muted small">Public repositories only.</p>
+    </div>
+    <div class="tabpane hidden" data-pane="folder">
+      <div class="row"><input id="folder-input" type="text" placeholder="C:\Projects\MyGame\Plugins\MyPlugin"><button id="folder-go" type="button">Scan</button></div>
+      <p class="muted small">Tip: the editor bridges open this automatically (Tools → Store Listing Kit).</p>
+    </div>
+    <div id="source-loading" class="loading hidden"><span class="spinner"></span> Extracting profile…</div>
+  </section>
+
+  <!-- Step 2 -->
+  <section class="card hidden" id="step-2">
+    <h2>2. Check the extracted profile</h2>
+    <p class="muted">Every fact in your listing comes from here. Fix anything wrong <em>before</em> generating.</p>
+    <div id="profile-warnings"></div>
+    <form id="profile-form" class="grid"></form>
+    <div class="actions"><button id="profile-save" type="button">Save and continue</button></div>
+  </section>
+
+  <!-- Step 3 -->
+  <section class="card hidden" id="step-3">
+    <h2>3. Add real screenshots</h2>
+    <p class="muted">PNG, JPEG or WebP, up to 20. The first one is used for thumbnails and cards. They are resized to each store's exact sizes; nothing is generated.</p>
+    <label class="drop" id="shot-drop">
+      <input type="file" id="shot-input" accept=".png,.jpg,.jpeg,.webp" multiple hidden>
+      <strong>Drop screenshots here</strong> or click to choose
+    </label>
+    <div id="shots" class="shots"></div>
+    <p id="shots-empty" class="empty">No screenshots yet. You can still generate copy, but the image slots will be flagged.</p>
+    <div class="actions"><button id="shots-next" type="button">Continue</button></div>
+  </section>
+
+  <!-- Step 4 -->
+  <section class="card hidden" id="step-4">
+    <h2>4. Generate the listing kit</h2>
+    <div class="row">
+      <label for="gen-mode" class="inline">Writer</label>
+      <select id="gen-mode">
+        <option value="auto">Automatic (Claude if a key is set, otherwise offline)</option>
+        <option value="claude">Claude</option>
+        <option value="template">Offline template (no AI)</option>
+      </select>
+      <button id="gen-go" type="button">Generate</button>
+    </div>
+    <ul id="gen-progress" class="progress"></ul>
+  </section>
+
+  <!-- Step 5 -->
+  <section class="card hidden" id="step-5">
+    <h2>5. Review and edit</h2>
+    <div class="tabs" id="store-tabs"></div>
+    <div id="store-editor"></div>
+  </section>
+
+  <!-- Step 6 -->
+  <section class="card hidden" id="step-6">
+    <h2>6. Export</h2>
+    <p class="muted">A zip with one folder per store: <code>listing.txt</code>, <code>listing.json</code> and <code>images/</code> at exact store sizes, plus <code>validation.json</code>.</p>
+    <p id="export-summary"></p>
+    <a id="export-link" class="button" href="#" download>Download listing kit (.zip)</a>
+  </section>
+</main>
+
+<dialog id="dlg-key">
+  <form method="dialog" class="dlg">
+    <h3>Anthropic API key</h3>
+    <p class="muted small">Kept in memory for this session only; never written to disk. You can also set the <code>ANTHROPIC_API_KEY</code> environment variable before starting the app.</p>
+    <input id="key-input" type="password" autocomplete="off" placeholder="sk-ant-…">
+    <p id="key-status" class="small"></p>
+    <div class="actions"><button id="key-clear" type="button" class="ghost">Forget key</button><button id="key-save" type="button">Save</button><button value="close" class="ghost">Close</button></div>
+  </form>
+</dialog>
+
+<dialog id="dlg-engines">
+  <form method="dialog" class="dlg">
+    <h3>Connect Unreal Engine and Unity</h3>
+    <p class="muted small">Installed engines found on this computer:</p>
+    <ul id="engine-list" class="list"></ul>
+    <p class="muted small">Install the editor bridge into a project to get <strong>Tools → Store Listing Kit</strong> menus (open this app on a plugin, capture screenshots).</p>
+    <div class="row"><input id="bridge-path" type="text" placeholder="Project folder (contains .uproject, or Assets/ + ProjectSettings/)"><button id="bridge-go" type="button">Install bridge</button></div>
+    <p id="bridge-status" class="small"></p>
+    <div class="actions"><button value="close" class="ghost">Close</button></div>
+  </form>
+</dialog>
+</body>
+</html>

@@ -1,0 +1,16 @@
+{
+	"FileVersion": 3,
+	"Version": 1,
+	"VersionName": "0.1.0",
+	"FriendlyName": "Store Listing Kit Bridge",
+	"Description": "Editor-only bridge: open Store Listing Kit for a plugin in this project and capture listing screenshots.",
+	"Category": "Editor",
+	"CreatedBy": "Store Listing Kit",
+	"CanContainContent": true,
+	"IsBetaVersion": true,
+	"EnabledByDefault": true,
+	"Plugins": [
+		{ "Name": "PythonScriptPlugin", "Enabled": true },
+		{ "Name": "EditorScriptingUtilities", "Enabled": true }
+	]
+}

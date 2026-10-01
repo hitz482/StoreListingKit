@@ -1,0 +1,8 @@
+{
+  "name": "StoreListingKit.Bridge.Editor",
+  "references": [],
+  "includePlatforms": ["Editor"],
+  "excludePlatforms": [],
+  "allowUnsafeCode": false,
+  "autoReferenced": false
+}
